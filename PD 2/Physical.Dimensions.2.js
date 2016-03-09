@@ -9,3 +9,4 @@ $('.thumbnail').click(function() {
 $('.full-size').click(function() {
 	$(this).next('.thumbnail');
 })
+
