@@ -55,6 +55,59 @@ h1, h2, h3, h4, h5 {
 }
 
 /*Layer 2*/
+.textarea-container {
+  position: relative;
+  /* you should change this*/
+  width: 50%;
+}
+
+textarea, .textarea-size {
+  min-height: 25px;
+  /* need to manually set font and font size */
+  font-family: sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid;
+
+  overflow: hidden;
+  width: 100%;
+}
+
+textarea {
+  height: 100%;
+  position: relative;
+  resize:none;
+
+  /*
+  "pre" or "preline" or "normal" fixes Chrome issue where
+    whitespace at end of lines does not trigger a line break.
+  However, it causes the text to exhibit the behavior seen with
+    "pre" that is described below.
+   */
+  white-space: normal;
+}
+
+.textarea-size {
+  visibility: hidden;
+
+  /*
+  Pre-wrap: preserve spacing and newlines, but wrap text.
+  Pre: preserve spacing and newlines but don't wrap text.
+
+  "pre" does not wrap well on Firefox, even with word-wrap:break-word.
+  "pre" on Chrome works with word-wrap, but exhibits different behavior:
+  Instead of entire words being moved to the next line for wrapping,
+  the browser will cut words in the middle for wrapping.
+  "pre-line" has Firefox issues
+  */
+  white-space: pre-wrap;
+  /* Required for wrapping lines in Webkit,
+    but not necessary in Firefox if you have white-space wrapping
+    (pre-wrap, normal, pre-line) already set */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 #heading-input {
 	
 }
@@ -62,6 +115,163 @@ h1, h2, h3, h4, h5 {
 	
 }
 /*Layer 3*/
+/*widgEditor*/
+/* TOOLBAR BUTTONS */
+
+.widgToolbar a
+{
+	display: block;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	text-indent: -1000em;
+	text-decoration: none;
+}
+
+.widgToolbar a:hover
+{
+	background-position: 0 -30px;
+}
+
+.widgToolbar a:active
+{
+	margin-top: 2px;
+	margin-left: 2px;
+	background-position: 0 -60px;
+}
+
+.widgToolbar li.on a, .widgToolbar li.on a:hover
+{
+	background-position: 0 -60px;
+}
+
+.widgToolbar li.widgEditButton
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_shadow.gif);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+
+.widgButtonBold
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_bold.gif);
+}
+
+.widgButtonHTML
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_html.gif);
+}
+
+.widgButtonImage 
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_image.gif);
+}
+
+.widgButtonItalic 
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_italic.gif);
+}
+
+.widgButtonLink
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_link.gif);
+}
+
+.widgButtonOrdered
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_ordered.gif);
+}
+
+.widgButtonUnordered
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_unordered.gif);
+}
+
+.widgSource a
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_empty.gif));
+	cursor: default;
+}
+
+.widgSource li.on a, .widgSource li.on a:hover
+{
+	background-position: 0 0;
+}
+
+.widgSource .widgButtonHTML
+{
+	background-image: url(Images/WidgEditor%20Images/widgeditor_button_html.gif);
+}
+
+.widgSource .widgButtonHTML:hover
+{
+	cursor: pointer;
+}
+
+
+
+
+/* TOOLBAR */
+
+.widgToolbar
+{
+	list-style: none;
+	width: 100%;
+	height: 48px;
+	margin: 0;
+	padding: 0 0 0 2px;
+	border: 1px solid #CCCCCC;
+	background-image: url(Images/WidgEditor%20Images/widgeditor_toolbar_bg.gif);
+	background-repeat: repeat-x;
+}
+
+* html .widgToolbar
+{
+	width: auto;
+}
+
+.widgToolbar li
+{
+	display: inline;
+	float: left;
+	width: 32px;
+	height: 32px;
+	margin-top: 9px;
+	margin-left: 7px;
+	line-height: 30px;
+}
+
+
+
+
+/* EDITING AREA */
+
+.widgIframe
+{
+	clear: left;
+	width: 100%;
+	height: 200px;
+	border-top-width: 1px;
+}
+
+.widgContainer textarea.widgEditor
+{
+	clear: left;
+	width: 100%;
+	height: 200px;
+	border-top-width: 1px;
+	padding: 0;
+}
+
+
+
+
+/* EDITOR CONTAINER */
+
+.widgContainer
+{
+}
 
 /*Layer 4*/
 
