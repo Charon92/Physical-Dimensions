@@ -10,29 +10,12 @@
 </head>
 
 <body>
-	<div id="page-container">
     <div class="banner-container">
-    	<img class="banner" src= />
+    	<img class="banner" src="Images/Snowdon.jpg" />
     </div>
+	<div id="page-container">
     <h1>Write a blog post</h1>
-    <h3>Title your piece:</h3>
-    <div id="ORIGINAL_IDWidgContainer" class="widgContainer">
-     <ul id="ORIGINAL_IDWidgToolbar" class="widgToolbar">
-     <li id="noiseWidgToolbarButtonBold" class="widgEditButton"><a href="#" title="Bold" class="widgButtonBold">Bold</a></li>
-     <li id="noiseWidgToolbarButtonItalic" class="widgEditButton"><a href="#" title="Italic" class="widgButtonItalic">Italic</a></li>
-     <li id="noiseWidgToolbarButtonLink" class="widgEditButton"><a href="#" title="Hyperlink" class="widgButtonLink">Hyperlink</a></li>
-     <li id="noiseWidgToolbarButtonUnordered" class="widgEditButton"><a href="#" title="Unordered List" class="widgButtonUnordered">Unordered List</a></li>
-     <li id="noiseWidgToolbarButtonOrdered" class="widgEditButton"><a href="#" title="Ordered List" class="widgButtonOrdered">Ordered List</a></li>
-     <li id="noiseWidgToolbarButtonImage" class="widgEditButton"><a href="#" title="Insert Image" class="widgButtonImage">Insert Image</a></li>
-     <li id="noiseWidgToolbarButtonHTML" class="widgEditButton"><a href="#" title="HTML Source" class="widgButtonHTML">HTML Source</a></li>
-             <li class="widgEditSelect"><select id="noiseWidgToolbarSelectBlock" name="noiseWidgToolbarSelectBlock" class="widgSelectBlock" pmbx_context="FCE3FCF3-4B68-42B9-9F6F-DCD3B0F79DF4"><option value="">Change block type</option><option value="<h1>">Heading 1</option><option value="<h2>">Heading 2</option><option value="<h3>">Heading 3</option><option value="<h4>">Heading 4</option><option value="<h5>">Heading 5</option><option value="<h6>">Heading 6</option><option value="<p>">Paragraph</option></select></li>
-     </ul>
-<iframe id="noiseWidgIframe" class="widgIframe">    <div class="textarea-container">
-        </div></iframe>
-<input type="hidden" id="noise" name="noise" value="<p>widgEditor <strong>automatically</strong> integrates the content that was in the textarea!</p>">
-
-<input type="hidden" id="noiseWidgEditor" name="noiseWidgEditor" value="true">
- </div>
+<input frameborder="0" allowtransparancy="true" id="textArea" class="widgIframe" placeholder="Title" ></input>
        
     <h3>Input content:</h3>
         <div id="ORIGINAL_IDWidgContainer" class="widgContainer">
@@ -46,11 +29,43 @@
      <li id="noiseWidgToolbarButtonHTML" class="widgEditButton"><a href="#" title="HTML Source" class="widgButtonHTML">HTML Source</a></li>
              <li class="widgEditSelect"><select id="noiseWidgToolbarSelectBlock" name="noiseWidgToolbarSelectBlock" class="widgSelectBlock" pmbx_context="FCE3FCF3-4B68-42B9-9F6F-DCD3B0F79DF4"><option value="">Change block type</option><option value="<h1>">Heading 1</option><option value="<h2>">Heading 2</option><option value="<h3>">Heading 3</option><option value="<h4>">Heading 4</option><option value="<h5>">Heading 5</option><option value="<h6>">Heading 6</option><option value="<p>">Paragraph</option></select></li>
      </ul>
-<iframe id="noiseWidgIframe" class="widgIframe">    <div class="textarea-container">
-        </div></iframe>
-<input type="hidden" id="noise" name="noise" value="<p>widgEditor <strong>automatically</strong> integrates the content that was in the textarea!</p>">
-
-<input type="hidden" id="noiseWidgEditor" name="noiseWidgEditor" value="true">
+<textarea id="textArea" class="widgIframe" rows="20" cols="200">
+        </textarea>
+	<button type="button" value="save" id="save">Save</button>
+    <script>
+		function saveTextAsFile() {
+			var textToWrite = document.getElementById('textArea');
+			var textFileAsBlob = new Blob ([textToWrite], {
+				type: 'text/plain'
+			});
+			var fileNameToSaveAs = "ecc.plist";
+			
+			var downloadLink = document.createElement("a");
+			documentLink.download = fileNameToSaveAs;
+			downloadLink.innerHTML = "Download File";
+				if (window.webkitURL !=null) { 
+				//Chrome allows the link to be clicked
+				//without it actually being added to the DOM
+				downloadLink.href = window.webkitURL.createOBjectURL(textFileAsBlob);
+				}else{
+					//Firefox requires the link to be added to the DOM
+					//before it can be clicked
+					downloadLink.onclick = destroyClickedElement;
+					donloadLink.style.display = "none";
+					download.body.appendChild(downloadLink);
+				}
+				
+				downloadLink.click();
+		}
+		var button = document.getElementById('save');
+		button.addEventListener('click', saveTextAsFile);
+		
+		function destroyClickedElement(event) {
+			//remove the link from the DOM
+			document.body.removeChild(event.target);
+		}
+		</script>
+					
  </div>    
     </div>
 </body>

@@ -9,6 +9,10 @@ h1, h2, h3, h4, h5 {
 	font-family: Helvetica;
 	border-bottom: 1px solid black;
 }
+html, body {
+	margin: 0;
+	padding: 0;	
+}
 head {
   font-size: 1.2em;
 }
